@@ -24,12 +24,5 @@ steps:
   - name: greeting
     commands:
       - echo hello world
-
-  - name: install github hub
-    commands:
       - curl -fsSL https://github.com/github/hub/raw/master/script/get | bash -s 2.14.1
-      - bin/hub pr list # list pull requests in the current repo
-
-  - name: copy examples to docker-react-node
-    commands:
-    - bash sync-examples.sh
+      - echo "done"
