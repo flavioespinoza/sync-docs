@@ -1,0 +1,35 @@
+---
+kind: pipeline
+type: exec
+name: default
+
+trigger:
+  ref:
+    - refs/heads/master # All pushes to master
+
+    - refs/heads/drone # All pushes to yarn
+
+    - refs/pull/*/* # All pull requests regardless of branch
+
+    - refs/tags/* # Tags for releasing/etc
+
+platform:
+  os: linux
+  arch: amd64
+
+workspace:
+  base: /node
+
+steps:
+  - name: greeting
+    commands:
+      - echo hello world
+
+  - name: install github hub
+    commands:
+      - curl -fsSL https://github.com/github/hub/raw/master/script/get | bash -s 2.14.1
+      - bin/hub pr list # list pull requests in the current repo
+
+  - name: copy examples to docker-react-node
+    commands:
+    - bash sync-examples.sh
