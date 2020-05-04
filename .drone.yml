@@ -17,9 +17,6 @@ platform:
   os: linux
   arch: amd64
 
-workspace:
-  base: /node
-
 steps:
   - name: greeting
     commands:
