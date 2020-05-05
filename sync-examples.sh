@@ -19,6 +19,10 @@ timestamp=$(date +%s)
 
 echo -e "${green}starting sync${end_green}"
 
+curl -fsSL https://github.com/github/hub/raw/master/script/get | bash -s 2.14.1
+
+hub --version
+
 cd ..
 
 rm -rf tempest--*
