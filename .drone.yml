@@ -3,6 +3,16 @@ kind: pipeline
 type: exec
 name: default
 
+trigger:
+  ref:
+    - refs/heads/master  # All pushes to master
+
+    - refs/heads/drone    # All pushes to yarn
+
+    - refs/pull/*/*      # All pull requests regardless of branch
+
+    - refs/tags/*        # Tags for releasing/etc
+
 platform:
   os: linux
   arch: amd64
