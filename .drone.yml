@@ -4,8 +4,6 @@ type: exec
 name: default
 
 steps:
-- uses: actions/checkout@v2
-
 - name: hub example
   shell: bash
   run: |
